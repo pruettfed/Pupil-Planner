@@ -8,7 +8,6 @@
         <attribute name="type" optional="YES" attributeType="String" defaultValueString="Course" customClassName="TypeIcon"/>
         <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="category" inverseEntity="Task"/>
     </entity>
-    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
     <entity name="Plan" representedClassName="Plan" syncable="YES" codeGenerationType="class">
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="subtasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subtask" inverseName="plan" inverseEntity="Subtask"/>

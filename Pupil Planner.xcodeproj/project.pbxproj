@@ -13,6 +13,7 @@
 		B15B16B529E51577007862C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15B16B429E51577007862C2 /* Preview Assets.xcassets */; };
 		B15B16BD29E516E2007862C2 /* PupilData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */; };
 		B15B16BF29E516FA007862C2 /* TypeIconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16BE29E516FA007862C2 /* TypeIconData.swift */; };
+		B15B16C129E5184C007862C2 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C029E5184C007862C2 /* Persistance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		B15B16B429E51577007862C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B15B16BC29E516E2007862C2 /* PupilData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PupilData.xcdatamodel; sourceTree = "<group>"; };
 		B15B16BE29E516FA007862C2 /* TypeIconData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeIconData.swift; sourceTree = "<group>"; };
+		B15B16C029E5184C007862C2 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +59,8 @@
 			children = (
 				B15B16AD29E51574007862C2 /* Pupil_PlannerApp.swift */,
 				B15B16AF29E51574007862C2 /* ContentView.swift */,
-				B15B16BE29E516FA007862C2 /* TypeIconData.swift */,
-				B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */,
+				B15B16C029E5184C007862C2 /* Persistance.swift */,
+				B15B16C229E5C7A3007862C2 /* Data Model */,
 				B15B16B129E51577007862C2 /* Assets.xcassets */,
 				B15B16B329E51577007862C2 /* Preview Content */,
 			);
@@ -71,6 +73,15 @@
 				B15B16B429E51577007862C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B15B16C229E5C7A3007862C2 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				B15B16BE29E516FA007862C2 /* TypeIconData.swift */,
+				B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */,
+			);
+			path = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 				B15B16B029E51574007862C2 /* ContentView.swift in Sources */,
 				B15B16BD29E516E2007862C2 /* PupilData.xcdatamodeld in Sources */,
 				B15B16BF29E516FA007862C2 /* TypeIconData.swift in Sources */,
+				B15B16C129E5184C007862C2 /* Persistance.swift in Sources */,
 				B15B16AE29E51574007862C2 /* Pupil_PlannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

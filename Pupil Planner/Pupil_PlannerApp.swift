@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct Pupil_PlannerApp: App {
+    @Environment(\.scenePhase) var scenePhase // Save on scene change
+    
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+        }
+        .onChange(of: scenePhase) { _ in
+            persistenceController.save()
         }
     }
 }

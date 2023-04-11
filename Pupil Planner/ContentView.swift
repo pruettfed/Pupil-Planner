@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.name)]) var tasks: FetchedResults<Task>
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            List(tasks) { task in
+                Text(task.name ?? "Default")
+            }
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
     }
 }
