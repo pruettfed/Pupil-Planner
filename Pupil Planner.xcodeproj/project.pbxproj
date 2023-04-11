@@ -11,6 +11,8 @@
 		B15B16B029E51574007862C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16AF29E51574007862C2 /* ContentView.swift */; };
 		B15B16B229E51577007862C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15B16B129E51577007862C2 /* Assets.xcassets */; };
 		B15B16B529E51577007862C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15B16B429E51577007862C2 /* Preview Assets.xcassets */; };
+		B15B16BD29E516E2007862C2 /* PupilData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */; };
+		B15B16BF29E516FA007862C2 /* TypeIconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16BE29E516FA007862C2 /* TypeIconData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		B15B16AF29E51574007862C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B15B16B129E51577007862C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B15B16B429E51577007862C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B15B16BC29E516E2007862C2 /* PupilData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PupilData.xcdatamodel; sourceTree = "<group>"; };
+		B15B16BE29E516FA007862C2 /* TypeIconData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeIconData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				B15B16AD29E51574007862C2 /* Pupil_PlannerApp.swift */,
 				B15B16AF29E51574007862C2 /* ContentView.swift */,
+				B15B16BE29E516FA007862C2 /* TypeIconData.swift */,
+				B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */,
 				B15B16B129E51577007862C2 /* Assets.xcassets */,
 				B15B16B329E51577007862C2 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B15B16B029E51574007862C2 /* ContentView.swift in Sources */,
+				B15B16BD29E516E2007862C2 /* PupilData.xcdatamodeld in Sources */,
+				B15B16BF29E516FA007862C2 /* TypeIconData.swift in Sources */,
 				B15B16AE29E51574007862C2 /* Pupil_PlannerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +278,8 @@
 				DEVELOPMENT_TEAM = CY78ABTTSA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pupil;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -279,7 +289,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = "prudev.Pupil-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -299,6 +309,8 @@
 				DEVELOPMENT_TEAM = CY78ABTTSA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Pupil;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,7 +320,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = Alpha;
 				PRODUCT_BUNDLE_IDENTIFIER = "prudev.Pupil-Planner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -339,6 +351,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B15B16BC29E516E2007862C2 /* PupilData.xcdatamodel */,
+			);
+			currentVersion = B15B16BC29E516E2007862C2 /* PupilData.xcdatamodel */;
+			path = PupilData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B15B16A229E51574007862C2 /* Project object */;
 }
