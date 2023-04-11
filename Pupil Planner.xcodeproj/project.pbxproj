@@ -14,6 +14,9 @@
 		B15B16BD29E516E2007862C2 /* PupilData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */; };
 		B15B16BF29E516FA007862C2 /* TypeIconData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16BE29E516FA007862C2 /* TypeIconData.swift */; };
 		B15B16C129E5184C007862C2 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C029E5184C007862C2 /* Persistance.swift */; };
+		B15B16C629E5CFC6007862C2 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C529E5CFC5007862C2 /* ViewExtensions.swift */; };
+		B15B16C829E5D1FA007862C2 /* GradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C729E5D1FA007862C2 /* GradientModifier.swift */; };
+		B15B16CA29E5DD0D007862C2 /* TodayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C929E5DD0D007862C2 /* TodayPageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		B15B16BC29E516E2007862C2 /* PupilData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PupilData.xcdatamodel; sourceTree = "<group>"; };
 		B15B16BE29E516FA007862C2 /* TypeIconData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeIconData.swift; sourceTree = "<group>"; };
 		B15B16C029E5184C007862C2 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		B15B16C529E5CFC5007862C2 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		B15B16C729E5D1FA007862C2 /* GradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientModifier.swift; sourceTree = "<group>"; };
+		B15B16C929E5DD0D007862C2 /* TodayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodayPageView.swift; path = "Pupil Planner/TodayPageView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,9 @@
 				B15B16AD29E51574007862C2 /* Pupil_PlannerApp.swift */,
 				B15B16AF29E51574007862C2 /* ContentView.swift */,
 				B15B16C029E5184C007862C2 /* Persistance.swift */,
+				B15B16C429E5CEF0007862C2 /* Pages */,
 				B15B16C229E5C7A3007862C2 /* Data Model */,
+				B15B16C329E5CED8007862C2 /* Extensions */,
 				B15B16B129E51577007862C2 /* Assets.xcassets */,
 				B15B16B329E51577007862C2 /* Preview Content */,
 			);
@@ -82,6 +90,23 @@
 				B15B16BB29E516E2007862C2 /* PupilData.xcdatamodeld */,
 			);
 			path = "Data Model";
+			sourceTree = "<group>";
+		};
+		B15B16C329E5CED8007862C2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B15B16C529E5CFC5007862C2 /* ViewExtensions.swift */,
+				B15B16C729E5D1FA007862C2 /* GradientModifier.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B15B16C429E5CEF0007862C2 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				B15B16C929E5DD0D007862C2 /* TodayPageView.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,10 +180,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B15B16B029E51574007862C2 /* ContentView.swift in Sources */,
+				B15B16C829E5D1FA007862C2 /* GradientModifier.swift in Sources */,
 				B15B16BD29E516E2007862C2 /* PupilData.xcdatamodeld in Sources */,
 				B15B16BF29E516FA007862C2 /* TypeIconData.swift in Sources */,
 				B15B16C129E5184C007862C2 /* Persistance.swift in Sources */,
+				B15B16C629E5CFC6007862C2 /* ViewExtensions.swift in Sources */,
 				B15B16AE29E51574007862C2 /* Pupil_PlannerApp.swift in Sources */,
+				B15B16CA29E5DD0D007862C2 /* TodayPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
