@@ -17,6 +17,11 @@
 		B15B16C629E5CFC6007862C2 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C529E5CFC5007862C2 /* ViewExtensions.swift */; };
 		B15B16C829E5D1FA007862C2 /* GradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C729E5D1FA007862C2 /* GradientModifier.swift */; };
 		B15B16CA29E5DD0D007862C2 /* TodayPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16C929E5DD0D007862C2 /* TodayPageView.swift */; };
+		B15B16CC29E5DDEA007862C2 /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16CB29E5DDEA007862C2 /* TopBar.swift */; };
+		B15B16CE29E5DE2A007862C2 /* SettingsPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16CD29E5DE2A007862C2 /* SettingsPageView.swift */; };
+		B15B16D029E5E22A007862C2 /* EmptyItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16CF29E5E22A007862C2 /* EmptyItemsView.swift */; };
+		B15B16D329E5F7A8007862C2 /* TasksPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16D229E5F7A8007862C2 /* TasksPageView.swift */; };
+		B15B16D529E5F87C007862C2 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15B16D429E5F87C007862C2 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		B15B16C529E5CFC5007862C2 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		B15B16C729E5D1FA007862C2 /* GradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientModifier.swift; sourceTree = "<group>"; };
 		B15B16C929E5DD0D007862C2 /* TodayPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodayPageView.swift; path = "Pupil Planner/TodayPageView.swift"; sourceTree = SOURCE_ROOT; };
+		B15B16CB29E5DDEA007862C2 /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		B15B16CD29E5DE2A007862C2 /* SettingsPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPageView.swift; sourceTree = "<group>"; };
+		B15B16CF29E5E22A007862C2 /* EmptyItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItemsView.swift; sourceTree = "<group>"; };
+		B15B16D229E5F7A8007862C2 /* TasksPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPageView.swift; sourceTree = "<group>"; };
+		B15B16D429E5F87C007862C2 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = "Pupil Planner/Pages/DateFormatter.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,7 @@
 				B15B16AD29E51574007862C2 /* Pupil_PlannerApp.swift */,
 				B15B16AF29E51574007862C2 /* ContentView.swift */,
 				B15B16C029E5184C007862C2 /* Persistance.swift */,
+				B15B16D129E5F53A007862C2 /* Cards */,
 				B15B16C429E5CEF0007862C2 /* Pages */,
 				B15B16C229E5C7A3007862C2 /* Data Model */,
 				B15B16C329E5CED8007862C2 /* Extensions */,
@@ -95,8 +106,10 @@
 		B15B16C329E5CED8007862C2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B15B16D429E5F87C007862C2 /* DateFormatter.swift */,
 				B15B16C529E5CFC5007862C2 /* ViewExtensions.swift */,
 				B15B16C729E5D1FA007862C2 /* GradientModifier.swift */,
+				B15B16CF29E5E22A007862C2 /* EmptyItemsView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -105,8 +118,18 @@
 			isa = PBXGroup;
 			children = (
 				B15B16C929E5DD0D007862C2 /* TodayPageView.swift */,
+				B15B16CB29E5DDEA007862C2 /* TopBar.swift */,
+				B15B16CD29E5DE2A007862C2 /* SettingsPageView.swift */,
+				B15B16D229E5F7A8007862C2 /* TasksPageView.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		B15B16D129E5F53A007862C2 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,10 +203,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B15B16B029E51574007862C2 /* ContentView.swift in Sources */,
+				B15B16CC29E5DDEA007862C2 /* TopBar.swift in Sources */,
+				B15B16D029E5E22A007862C2 /* EmptyItemsView.swift in Sources */,
 				B15B16C829E5D1FA007862C2 /* GradientModifier.swift in Sources */,
+				B15B16D529E5F87C007862C2 /* DateFormatter.swift in Sources */,
 				B15B16BD29E516E2007862C2 /* PupilData.xcdatamodeld in Sources */,
+				B15B16CE29E5DE2A007862C2 /* SettingsPageView.swift in Sources */,
 				B15B16BF29E516FA007862C2 /* TypeIconData.swift in Sources */,
 				B15B16C129E5184C007862C2 /* Persistance.swift in Sources */,
+				B15B16D329E5F7A8007862C2 /* TasksPageView.swift in Sources */,
 				B15B16C629E5CFC6007862C2 /* ViewExtensions.swift in Sources */,
 				B15B16AE29E51574007862C2 /* Pupil_PlannerApp.swift in Sources */,
 				B15B16CA29E5DD0D007862C2 /* TodayPageView.swift in Sources */,

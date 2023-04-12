@@ -33,17 +33,17 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
 
-        // Create 3 Classes - 2 Extras
-        for _ in 0...5 {
+        // Create 5 Categories
+        for _ in 0..<5 {
             let course = Category(context: controller.container.viewContext)
-            course.color = "red"
-            course.icon = "course"
+            course.color = "Red"
+            course.icon = "📈"
             course.name = "Calculus"
             course.type = "Course"
         }
 
         // Create 5 Tasks
-        for _ in 0...5 {
+        for _ in 0..<3 {
             let task = Task(context: controller.container.viewContext)
             task.name = "Task"
             task.type = "Task"

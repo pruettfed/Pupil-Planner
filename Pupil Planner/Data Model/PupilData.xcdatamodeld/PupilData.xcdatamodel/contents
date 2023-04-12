@@ -5,7 +5,7 @@
         <attribute name="icon" attributeType="String" defaultValueString="🎓"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString="Class"/>
-        <attribute name="type" optional="YES" attributeType="String" defaultValueString="Course" customClassName="TypeIcon"/>
+        <attribute name="type" attributeType="String" defaultValueString="Course" customClassName="TypeIcon"/>
         <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="category" inverseEntity="Task"/>
     </entity>
     <entity name="Plan" representedClassName="Plan" syncable="YES" codeGenerationType="class">
