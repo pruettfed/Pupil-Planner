@@ -17,9 +17,9 @@ struct ContentView: View {
             case 0:
                 TodayPageView()
             case 1:
-                TopBar() // TasksPageView()
+                TasksPageView()
             case 2:
-                TopBar() // PlannerPageView()
+                PlannerPageView()
             default:
                 TodayPageView()
             }
@@ -33,7 +33,12 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        let moc = PersistenceController.preview.container.viewContext
+        
+        ContentView().environment(\.managedObjectContext, moc)
+            .preferredColorScheme(.dark)
+        
+        
     }
 }
 

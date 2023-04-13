@@ -61,12 +61,12 @@ struct TodayPageView_Previews: PreviewProvider {
 }
 
 struct TodayClasses : View {
-    @FetchRequest(sortDescriptors: []) var classes: FetchedResults<Category>
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)]) var classes: FetchedResults<Category>
     
     var body: some View {
         if classes.count > 0 {
             TabView {
-                ForEach(classes) { course in
+                ForEach(classes, id: \.self) { course in
                     Text(course.name ?? "Failed")
                 }
                 .rowShadow()
@@ -85,9 +85,8 @@ struct TodayClasses : View {
 struct TodayTasks : View {
     // Get tasks due today
     @FetchRequest(
-        sortDescriptors: []
-        // TODO: Sort by only today: predicate:
-        
+        sortDescriptors: [NSSortDescriptor(keyPath: \Task.dueDate, ascending: true)],
+        predicate: filterByToday()
     ) var todaysTasks: FetchedResults<Task>
     
     let todaysDate : Date
@@ -96,8 +95,8 @@ struct TodayTasks : View {
         if todaysTasks.count > 0 {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 18) {
-                    ForEach(todaysTasks) { task in
-                        Text(task.name ?? "Failed")
+                    ForEach(todaysTasks, id: \.self) { task in
+                        TaskBoxCard(task: task)
                     }
                 }
                 .rowPadding()
@@ -115,17 +114,16 @@ struct UpcomingTasks : View {
     
     // Get tasks not due today
     @FetchRequest(
-        sortDescriptors: []
-        // TODO: Sort by only upcoming
-        
+        sortDescriptors: [NSSortDescriptor(keyPath: \Task.dueDate, ascending: true)],
+        predicate: filterByUpcoming()
     ) var upcomingTasks: FetchedResults<Task>
     
     var body: some View {
         if upcomingTasks.count > 0 {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 18.0) {
-                    ForEach(upcomingTasks) { task in
-                        Text(task.name ?? "Failed")
+                    ForEach(upcomingTasks, id: \.self) { task in
+                        TaskBoxCard(task: task)
                     }
                 }
                 .rowPadding()

@@ -17,36 +17,6 @@ func getCurrentFullDate() -> String {
     return dateString
 }
 
-struct Week : Identifiable {
-    var id = UUID()
-    
-    var dayOfWeek : String
-    var date : String
-    
-    var fullDate : String
-}
-
-
-func getCurrentDayAndDate() -> Week {
-    let date = Date()
-    let formatter = DateFormatter()
-    
-    //formats Day of Week
-    formatter.dateFormat = "EEEEEE"
-    let day = formatter.string(from: date)
-    
-    //formats Date
-    formatter.dateFormat = "dd"
-    let dateString = formatter.string(from: date)
-    
-    formatter.dateFormat = "MM/dd/yyyy"
-    let fullDateString = formatter.string(from: date)
-    
-    let dayAndDate = Week(dayOfWeek: day, date: dateString, fullDate: fullDateString)
-    
-    return dayAndDate
-}
-//returns a week object with ex: dayOfWeek: Mo, date: 12, fullDate: 03/12/2021
 func dateToString(date: Date) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "MM/dd/yyyy"
@@ -65,6 +35,7 @@ func stringToDate(dateString : String) -> Date {
     return date ?? Date()
 }
 //returns a date from a string and when combined with dateStyle: date in text -> March 12, 2021
+
 func stringToNiceDate(dateString : String) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "EEEE, MMM d, yyyy"
@@ -134,3 +105,21 @@ func setBetweenColor(daysBetween : Int) -> String {
     
     return daysBetweenColor
 }
+
+func filterByToday() -> NSPredicate {
+    
+    let startOfToday = Calendar.current.startOfDay(for: Date())
+    let endOfToday = Calendar.current.date(byAdding: .day, value: 1, to: startOfToday)
+    
+    // based on Task.dueDate   vvvvvvvv          vvvvvvv
+    return NSPredicate(format: "dueDate >= %@ && dueDate <= %@", startOfToday as CVarArg, endOfToday! as any CVarArg)
+}
+
+func filterByUpcoming() -> NSPredicate {
+
+    let endOfToday = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+    
+    // based on Task.dueDate   vvvvvvvv
+    return NSPredicate(format: "dueDate >= %@", endOfToday! as any CVarArg)
+}
+

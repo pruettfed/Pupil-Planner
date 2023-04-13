@@ -33,26 +33,102 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
 
-        // Create 5 Categories
-        for _ in 0..<5 {
-            let course = Category(context: controller.container.viewContext)
-            course.color = "Red"
-            course.icon = "📈"
-            course.name = "Calculus"
-            course.type = "Course"
-        }
+        // Categories
+        let cat1 = Category(context: controller.container.viewContext)
+        cat1.name = "AP Physics C"
+        cat1.icon = "🏎️"
+        cat1.color = "Green"
+        cat1.type = "Course"
+        
+        let cat2 = Category(context: controller.container.viewContext)
+        cat2.name = "AP Calculus BC"
+        cat2.icon = "📈"
+        cat2.color = "Red"
+        cat2.type = "Course"
+        
+        let cat3 = Category(context: controller.container.viewContext)
+        cat3.name = "History 11"
+        cat3.icon = "⏳"
+        cat3.color = "Orange"
+        cat3.type = "Course"
 
-        // Create 5 Tasks
-        for _ in 0..<3 {
-            let task = Task(context: controller.container.viewContext)
-            task.name = "Task"
-            task.type = "Task"
-            task.dueDate = Date()
-            task.completionTime = 60
-        }
+        let cat4 = Category(context: controller.container.viewContext)
+        cat4.name = "Student Senate"
+        cat4.icon = "👨‍⚖️"
+        cat4.color = "Blue"
+        cat4.type = "Extracurricular"
+
+        let cat5 = Category(context: controller.container.viewContext)
+        cat5.name = "College Applications"
+        cat5.icon = "📝"
+        cat5.color = "Yellow"
+        cat5.type = "Personal"
 
         
-        // Create 2 Plans
+        
+        // Tasks
+        let task1 = Task(context: controller.container.viewContext)
+        task1.name = "Electrostatics Quiz"
+        task1.dueDate = stringToDate(dateString: "4/14/2023")
+        task1.isCompleted = false
+        task1.type = "Quiz"
+        task1.priority = 1
+        task1.category = cat1
+        task1.completionTime = 45
+        
+        let task2 = Task(context: controller.container.viewContext)
+        task2.name = "Electric Flux Video"
+        task2.dueDate = stringToDate(dateString: "4/16/2023")
+        task2.isCompleted = false
+        task2.type = "Quiz"
+        task2.priority = 1
+        task2.category = cat1
+        task2.completionTime = 20
+        
+        let task3 = Task(context: controller.container.viewContext)
+        task3.name = "Taylor Polynomial Review"
+        task3.dueDate = stringToDate(dateString: "4/14/2023")
+        task3.isCompleted = false
+        task3.type = "Task"
+        task3.priority = 1
+        task3.category = cat2
+        task3.completionTime = 30
+
+        let task4 = Task(context: controller.container.viewContext)
+        task4.name = "Parking Proposal"
+        task4.dueDate = stringToDate(dateString: "4/20/2023")
+        task4.isCompleted = false
+        task4.type = "Presentation"
+        task4.priority = 2
+        task4.category = cat4
+        task4.completionTime = 60
+
+        let task5 = Task(context: controller.container.viewContext)
+        task5.name = "Data Project Research"
+        task5.dueDate = stringToDate(dateString: "4/21/2023")
+        task5.isCompleted = false
+        task5.type = "Essay"
+        task5.priority = 3
+        task5.category = cat3
+        task5.completionTime = 75
+
+        let task6 = Task(context: controller.container.viewContext)
+        task6.name = "Vanderbilt Essay"
+        task6.dueDate = stringToDate(dateString: "6/1/2023")
+        task6.isCompleted = false
+        task6.type = "Essay"
+        task6.priority = 3
+        task6.category = cat5
+        task6.completionTime = 180
+        
+        let task7 = Task(context: controller.container.viewContext)
+        task7.name = "Cold War Video"
+        task7.dueDate = stringToDate(dateString: "4/12/2023")
+        task7.isCompleted = false
+        task7.type = "Task"
+        task7.priority = 1
+        task7.category = cat3
+        task7.completionTime = 15
 
         return controller
     }()

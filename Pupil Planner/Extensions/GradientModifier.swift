@@ -8,16 +8,14 @@
 import Foundation
 import SwiftUI
 
-// TODO: Choose which option looks better
-
-extension View {
+extension Rectangle {
     func gradientForeground(color: String) -> some View {
-        self.background(LinearGradient(gradient: Gradient(colors: [Color(color + "GradientTop"), Color(color + "GradientBottom")]), startPoint: .top, endPoint: .bottom))
+        self.fill(LinearGradient(gradient: Gradient(colors: [Color(color + "GradientTop"), Color(color + "GradientBottom")]), startPoint: .top, endPoint: .bottom))
     }
 }
 
-//extension Rectangle {
-//    func gradientFill(color: String) -> some View {
-//        self.fill(Color(color + "GradientTop").gradient)
-//    }
-//}
+extension RoundedRectangle {
+    func gradientForeground(color: String) -> some View {
+        self.fill(LinearGradient(gradient: Gradient(colors: [Color(color + "GradientTop"), Color(color + "GradientBottom")]), startPoint: .top, endPoint: .bottom))
+    }
+}
