@@ -97,6 +97,7 @@ struct TodayTasks : View {
                 HStack(spacing: 18) {
                     ForEach(todaysTasks, id: \.self) { task in
                         TaskBoxCard(task: task)
+                            .drawingGroup()
                     }
                 }
                 .rowPadding()
@@ -124,6 +125,7 @@ struct UpcomingTasks : View {
                 HStack(spacing: 18.0) {
                     ForEach(upcomingTasks, id: \.self) { task in
                         TaskBoxCard(task: task)
+                            .drawingGroup()
                     }
                 }
                 .rowPadding()

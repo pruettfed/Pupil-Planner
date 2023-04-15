@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskBoxCard: View {
-    @State var task: Task
+    @ObservedObject var task: Task
     
     var body: some View {
         let daysBetween = numberOfDaysBetween(startDate: Date(), toDate: task.dueDate ?? Date())

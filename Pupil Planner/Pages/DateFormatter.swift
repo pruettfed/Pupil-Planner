@@ -93,7 +93,10 @@ func setBetweenString(daysBetween : Int) -> String {
 func setBetweenColor(daysBetween : Int) -> String {
     var daysBetweenColor = ""
     
-    if daysBetween <= 1 {
+    if daysBetween == 0 {
+        daysBetweenColor = "Orange"
+    }
+    else if daysBetween < 0 {
         daysBetweenColor = "Red"
     }
     else if daysBetween > 1 && daysBetween < 4 {
@@ -111,8 +114,8 @@ func filterByToday() -> NSPredicate {
     let startOfToday = Calendar.current.startOfDay(for: Date())
     let endOfToday = Calendar.current.date(byAdding: .day, value: 1, to: startOfToday)
     
-    // based on Task.dueDate   vvvvvvvv          vvvvvvv
-    return NSPredicate(format: "dueDate >= %@ && dueDate <= %@", startOfToday as CVarArg, endOfToday! as any CVarArg)
+    // based on Task.dueDate                    vvvvvvv
+    return NSPredicate(format: "dueDate <= %@", endOfToday! as any CVarArg)
 }
 
 func filterByUpcoming() -> NSPredicate {

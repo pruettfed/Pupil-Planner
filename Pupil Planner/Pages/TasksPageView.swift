@@ -8,7 +8,16 @@
 import SwiftUI
 
 struct TasksPageView: View {
-    @FetchRequest(sortDescriptors: []) var tasks: FetchedResults<Task>
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Task.dueDate, ascending: true), NSSortDescriptor(keyPath: \Task.priority, ascending: true), NSSortDescriptor(keyPath: \Task.completionTime, ascending: true)],
+        predicate: NSPredicate(format: "isCompleted == false")
+    ) var incompleteTasks: FetchedResults<Task>
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Task.dueDate, ascending: true), NSSortDescriptor(keyPath: \Task.priority, ascending: true), NSSortDescriptor(keyPath: \Task.completionTime, ascending: true)],
+        predicate: NSPredicate(format: "isCompleted == true")
+    ) var completedTasks: FetchedResults<Task>
+    
     @State var selectedSection = 0
     
     var body: some View {
@@ -25,10 +34,10 @@ struct TasksPageView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 52)
                         .padding(.vertical, 6)
-                        .background(Color.blue.gradient.opacity(selectedSection == 0 ? 1 : 0))
+                        .background(Color.blue.opacity(selectedSection == 0 ? 1 : 0))
                         .clipShape(Capsule())
                         .padding(.leading, 6)
-                        .shadow(color: selectedSection == 0 ? Color("BlueGradientBottom").opacity(0.3) : Color.black.opacity(0), radius: 7, y: 3)
+                        .shadow(color: selectedSection == 0 ? Color("BlueGradientTop").opacity(0.3) : Color.black.opacity(0), radius: 7, y: 3)
                 }
                 
                 Spacer()
@@ -41,7 +50,7 @@ struct TasksPageView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 52)
                         .padding(.vertical, 6)
-                        .background(Color.blue.gradient.opacity(selectedSection == 1 ? 1 : 0))
+                        .background(Color.blue.opacity(selectedSection == 1 ? 1 : 0))
                         .clipShape(Capsule())
                         .padding(.trailing, 6)
                         .shadow(color: selectedSection == 1 ? Color("BlueGradientTop").opacity(0.3) : Color.black.opacity(0), radius: 7, y: 3)
@@ -55,17 +64,17 @@ struct TasksPageView: View {
             // Scrolling page
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 23) {
-//                    let currentGroup = groupTasksByDate(tasks: tasks.items)
+                    let groupedTasks = groupTasksByDate(incompleteTasks: incompleteTasks, completedTasks: completedTasks)
                     
                     // Small task card
                     if selectedSection == 0 {
-                        ForEach(tasks) { group in
-                            TaskList(tasks: [group], date: [group].first?.dueDate ?? Date())
+                        ForEach(groupedTasks.incompleteGroup, id: \.self) { group in
+                            TaskList(tasks: group, date: group.first?.dueDate ?? Date())
                         }
                     }
                     else {
-                        ForEach(tasks) { group in
-                            TaskList(tasks: [group], date: [group].first?.dueDate ?? Date())
+                        ForEach(groupedTasks.completedGroup, id: \.self) { group in
+                            TaskList(tasks: group, date: group.first?.dueDate ?? Date())
                         }
                     }
                 }
@@ -91,56 +100,25 @@ struct TasksPageView_Previews: PreviewProvider {
     }
 }
 
-//func groupTasksByDate(tasks: [Task]) -> (current: [[Task]], completed: [[Task]]) {
-//    let groupByDate = Dictionary(grouping: getCurrentTasks(tasks: tasks).0) { toStartOfDay(date: $0.dueDate) }
-//
-//    var groupedTasks = [[Task]]()
-//    var groupedCompletedTasks = [[Task]]()
-//
-//    //for all current tasks
-//    let sortedKeys = groupByDate.keys.sorted()
-//
-//    //for each item sort by key (date) and append the array onto larger array, groupTasks
-//    sortedKeys.forEach { (key) in
-//        let values = groupByDate[key]
-//
-//        groupedTasks.append(values ?? [])
-//    }
-//
-//    //for completed tasks
-//    let pastGroupByDate = Dictionary(grouping: getCurrentTasks(tasks: tasks).1) { toStartOfDay(date: $0.dueDate) }
-//
-//    let completedSortedKeys = pastGroupByDate.keys.sorted(by: >)
-//
-//    completedSortedKeys.forEach { (key) in
-//        let pastValues = pastGroupByDate[key]
-//
-//        groupedCompletedTasks.append(pastValues ?? [])
-//    }
-//
-//    return (groupedTasks, groupedCompletedTasks)
-//}
-//
-//func getCurrentTasks(tasks: [Task]) -> ([Task], [Task]) {
-//
-//    var currentArray : [Task] = []
-//    var completedArray : [Task] = []
-//
-//    for task in tasks {
-//        if !task.isCompleted {
-//            currentArray.append(task)
-//        }
-//        else if task.isCompleted {
-//            completedArray.append(task)
-//        }
-//    }
-//
-//    currentArray.sort(by: {$0.dueDate < $1.dueDate})
-//    completedArray.sort(by: {$0.dueDate < $1.dueDate})
-//
-//    return (currentArray, completedArray)
-//}
-//
+func groupTasksByDate(incompleteTasks: FetchedResults<Task>, completedTasks: FetchedResults<Task>) -> (incompleteGroup: [[Task]], completedGroup: [[Task]]) {
+    var groupedIncomplete = [[Task]]() // Ex [[Task, Task], [Task]]
+    var groupedComplete = [[Task]]() // Each array is grouped by date
+    
+    // For incomplete tasks
+    let incompleteGroupByDate = Dictionary(grouping: incompleteTasks, by: { Calendar.current.startOfDay(for: $0.dueDate ?? Date()) }) // Group by date
+    for key in incompleteGroupByDate.keys.sorted() {
+        groupedIncomplete.append(incompleteGroupByDate[key]!)
+    } // Sort and add to list
+        
+    // For completed tasks
+    let completedGroupByDate = Dictionary(grouping: completedTasks, by: { Calendar.current.startOfDay(for: $0.dueDate ?? Date()) })
+    for key in completedGroupByDate.keys.sorted() {
+        groupedComplete.append(completedGroupByDate[key]!)
+    }
+        
+        
+    return (groupedIncomplete, groupedComplete)
+}
 
 struct TaskList : View {
     let todaysDate = Date()
@@ -188,7 +166,7 @@ struct TaskList : View {
             //Array of tasks
             VStack(spacing: 18) {
                 ForEach(tasks, id: \.name) { task in
-                    Text(task.name ?? "Failed")
+                    TaskBarCard(task: task)
                 }
             }
         }

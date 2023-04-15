@@ -87,7 +87,7 @@ struct PersistenceController {
         
         let task3 = Task(context: controller.container.viewContext)
         task3.name = "Taylor Polynomial Review"
-        task3.dueDate = stringToDate(dateString: "4/14/2023")
+        task3.dueDate = stringToDate(dateString: "4/18/2023")
         task3.isCompleted = false
         task3.type = "Task"
         task3.priority = 1
@@ -96,7 +96,7 @@ struct PersistenceController {
 
         let task4 = Task(context: controller.container.viewContext)
         task4.name = "Parking Proposal"
-        task4.dueDate = stringToDate(dateString: "4/20/2023")
+        task4.dueDate = stringToDate(dateString: "4/21/2023")
         task4.isCompleted = false
         task4.type = "Presentation"
         task4.priority = 2
@@ -123,7 +123,7 @@ struct PersistenceController {
         
         let task7 = Task(context: controller.container.viewContext)
         task7.name = "Cold War Video"
-        task7.dueDate = stringToDate(dateString: "4/12/2023")
+        task7.dueDate = stringToDate(dateString: "4/18/2023")
         task7.isCompleted = false
         task7.type = "Task"
         task7.priority = 1

@@ -19,3 +19,9 @@ extension RoundedRectangle {
         self.fill(LinearGradient(gradient: Gradient(colors: [Color(color + "GradientTop"), Color(color + "GradientBottom")]), startPoint: .top, endPoint: .bottom))
     }
 }
+
+extension RoundedRectangle {
+    func gradientStroke(color: String, width: CGFloat) -> some View {
+        self.strokeBorder(LinearGradient(gradient: Gradient(colors: [Color(color + "GradientTop"), Color(color + "GradientBottom")]), startPoint: .top, endPoint: .bottom), lineWidth: width)
+    }
+}

@@ -8,36 +8,36 @@
 import SwiftUI
 
 struct TaskBarCard: View {
-    @State var task: Task
+    @ObservedObject var task: Task
     
     var body: some View {
         let color = task.category?.color ?? "Blue"
 
         HStack(spacing: 10) {
-            if task.isCompleted {
-                Button(action: { task.isCompleted.toggle() } ) {
-                    RoundedRectangle(cornerRadius: 9)
+            Button(action: { task.isCompleted.toggle() }) {
+                if task.isCompleted {
+                    RoundedRectangle(cornerRadius: 10)
                         .gradientForeground(color: color)
                         .aspectRatio(contentMode: .fit)
-                        .overlay(Image(systemName: "checkmark")
-                            .font(.system(size: 10).weight(.black))
-                            .shadow(radius: 2, y: 2)
-                            .foregroundColor(.white))
-                }
-                .padding([.top, .leading, .bottom])
-            }
-            else {
-                Button(action: { task.isCompleted.toggle() }) {
-                    Circle()
-                        .foregroundColor(Color(color + "GradientBottom")).opacity(0.5)
-                        .aspectRatio(contentMode: .fit)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 9)
-                                .gradientForeground(color: color)
+                            Image(systemName: "checkmark")
+                            .font(.system(size: 12).weight(.black))
+                            .shadow(radius: 2, y: 2)
+                            .foregroundColor(.white)
                         )
                 }
-                .padding([.top, .leading, .bottom])
+                else {
+                    RoundedRectangle(cornerRadius: 10)
+                        .gradientStroke(color: color, width: 4.5)
+                        .background(
+                            Circle()
+                                .foregroundColor(Color(color + "GradientBottom"))
+                                .opacity(0.3))
+                        .aspectRatio(contentMode: .fit)
+                }
             }
+            .padding([.top, .leading, .bottom], 14)
+            
             
             Text(task.category?.icon ?? "🎓")
             
